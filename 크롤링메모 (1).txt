@@ -1,0 +1,38 @@
+//*[@id="prd-review"]/ul/nav/button[11]
+
+#prd-review > ul > nav > button:nth-of-type(12) > i
+#prd-review > ul > nav > button:nth-child(12) > i
+
+detail = soup.select('#prd-info > div.ProductDetailDescription > div.ProductDetailDescription__content.ProductDetailDescription__content--hidden')
+for i in detail:
+    detail_list.append(i.get_text())
+    d = '\n'.join(detail_list)
+print(d)
+
+
+#prd-info > div.ProductDetailDescription > div.ProductDetailDescription__content.ProductDetailDescription__content--hidden
+
+"#content > div:nth-of-type(2) > aside > div > div > div:nth-of-type(2) > div:nth-of-type(1) > div > span > del"
+
+#content > div:nth-of-type(3) > sectionv:nth-of-type(2) > ul > nav > buttonv:nth-of-type(12) 
+#content > div:nth-child(2) > aside > div > div.sticky_aside_product > div.product-detail-info > div:nth-child(1) > div:nth-child(2) > span > del
+#content > div:nth-of-type(2) > aside > div > div > div.product-detail-info > div > div:nth-of-type(1) > span > strong
+#content > div:nth-child(2) > aside > div > div > div.product-detail-info > div:nth-child(1) > div:nth-child(2) > span > strong
+
+ALTER TABLE member AUTO_INCREMENT = 1;
+
+ALTER TABLE product AUTO_INCREMENT = 1;
+
+ALTER TABLE choice AUTO_INCREMENT = 1;
+
+ALTER TABLE review AUTO_INCREMENT = 1;
+
+
+#content > div:nth-of-type(2) > aside > div > div > div.product-detail-info > div:nth-of-type(1) > div:nth-of-type(2) > span > span.price_tag__strong > strong
+
+#content > div:nth-of-type(2) > aside > div > div > div:nth-of-type(2) > div:nth-of-type(1) > div > span > span.price_tag__strong > strong
+
+#content > div:nth-of-type(2) > aside > div > div > div:nth-of-type(2) > div:nth-of-type(1) > div > span > span
+
+#content > div:nth-child(2) > aside > div > div > div.product-detail-info > div:nth-child(1) > div:nth-child(2) > span > strong
+#content > div:nth-of-type(2) > aside > div > div > div.product-detail-info > div:nth-of-type(1) > div:nth-of-type(2) > span > strong
