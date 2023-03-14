@@ -1,8 +1,6 @@
-import java.util.*;
-
 class Solution {
     public int[] solution(String[] keyinput, int[] board) {
-        int[] answer = board;
+        int[] answer = {0, 0};
         int x = 0, y = 0;
         
         for(int i = 0; i < keyinput.length; i++) {
@@ -13,23 +11,7 @@ class Solution {
         }
         answer[0] = x;
         answer[1] = y;
-        
-        // if(Math.abs(x) <= board[0] / 2 && Math.abs(y) <= board[1] / 2){
-        //     answer[0] = x; 
-        //     answer[1] = y; 
-        // }
-        // else if(Math.abs(x) > board[0] / 2 && Math.abs(y) <= board[1] / 2) {
-        //     answer[0] = x < 0 ? (board[0] / 2) * -1 : board[0] / 2;
-        //     answer[1] = y;
-        // }
-        // else if(Math.abs(x) <= board[0] / 2 && Math.abs(y) > board[1] / 2) {
-        //     answer[0] = x;
-        //     answer[1] = y < 0 ? (board[1] / 2) * -1 : board[1] / 2;
-        // }
-        // else {
-        //     answer[0] = x < 0 ? (board[0] / 2) * -1 : board[0] / 2;
-        //     answer[1] = y < 0 ? (board[1] / 2) * -1 : board[1] / 2;
-        // }
+  
         return answer;
     }
 }
