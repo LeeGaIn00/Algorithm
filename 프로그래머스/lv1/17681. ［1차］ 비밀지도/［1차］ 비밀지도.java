@@ -27,13 +27,11 @@ class Solution {
         for(int i = 0; i < n; i++) {
             String bin = Long.toBinaryString(arr1[i] | arr2[i]);
             answer[i] = bin.replace("1", "#").replace("0", " ");
-            //answer[i] = bin.length() < n ? " " + bin : bin;
-            
+           
             while (answer[i].length() < n) {
                 answer[i] = ' ' + answer[i];
             }
         }
-        
         return answer;
     }
 }
