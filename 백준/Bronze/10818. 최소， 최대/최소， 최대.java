@@ -1,19 +1,16 @@
 import java.util.*;
+import java.io.*;
 
 public class Main {
-
-	public static void main(String[] args) {
-		Scanner in = new Scanner(System.in);
-		int n=in.nextInt();
-		int arr[] = new int[n];
-		for(int i=0;i<n;i++) {
-			arr[i]=in.nextInt();
-		}
-		int max=arr[0], min=arr[0];
-		for(int i=1;i<n;i++) {
-			if(max<arr[i]) max=arr[i];
-			if(min>arr[i]) min=arr[i];
-		}
-		System.out.print(min+" "+max);
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        int[] arr = new int[n];
+        
+        for(int i = 0; i < n; i++)
+            arr[i] = Integer.parseInt(st.nextToken());
+        Arrays.sort(arr);
+        System.out.println(arr[0] + " " + arr[n-1]);
 	}
 }
