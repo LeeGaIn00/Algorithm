@@ -1,11 +1,11 @@
 class Solution {
     public String solution(String myString) {
-        String answer = "";
+        StringBuffer sb = new StringBuffer();
         for(int i = 0; i < myString.length(); i++) {
             char c = myString.charAt(i);
-            if(c < 'l') answer += "l";
-            else answer += c + "";
+            if(c < 'l') sb.append('l');
+            else sb.append(c);
         }
-        return answer;
+        return sb.toString();
     }
 }
