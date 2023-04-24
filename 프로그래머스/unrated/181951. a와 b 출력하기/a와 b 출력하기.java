@@ -6,6 +6,7 @@ public class Solution {
         int a = sc.nextInt();
         int b = sc.nextInt();
 
-        System.out.printf("a = %d\nb = %d", a , b);
+        System.out.println("a = " + a);
+        System.out.println("b = " + b);
     }
 }
