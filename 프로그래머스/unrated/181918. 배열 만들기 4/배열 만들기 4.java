@@ -5,11 +5,11 @@ class Solution {
         ArrayList<Integer> list = new ArrayList<>();
         int i = 0;
         while(i < arr.length) {
-            if(list.size() == 0) {
+            if(list.isEmpty()) {
                 list.add(arr[i]);
                 i++;
             }
-            if(list.size() != 0 && list.get(list.size()-1) < arr[i]) {
+            if(!list.isEmpty() && list.get(list.size()-1) < arr[i]) {
                 list.add(arr[i]);
                 i++;
             }
