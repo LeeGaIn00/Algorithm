@@ -1,14 +1,14 @@
 class Solution {
     public int solution(int[] array) {
         int answer = 0;
-        String str = "";
+        StringBuilder sb = new StringBuilder();
         
-        for(int i : array)
-            str = str + i + "";
+        for(int i = 0; i < array.length; i++) 
+            sb.append(array[i]+"");
         
-        for(int i = 0; i < str.length(); i++)
-            if(str.charAt(i) == '7') answer++;
-        
-        return answer;
+        String str = sb.toString();
+        int len = str.length();
+        str = str.replace("7","");
+        return len - str.length();
     }
 }
