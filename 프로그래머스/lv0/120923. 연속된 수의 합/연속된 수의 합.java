@@ -1,12 +1,9 @@
 class Solution {
     public int[] solution(int num, int total) {
         int[] answer = new int[num];
-        int start = (total - (num - 1) * num / 2) / num;
-        int cnt = 0;
-        
-        while(cnt < num) 
-            answer[cnt++] = start++;
-    
+        int a = ((total * 2 / num) - (num - 1)) / 2;
+        for(int i = 0; i < num; i++)
+            answer[i] = a++;
         return answer;
     }
 }
