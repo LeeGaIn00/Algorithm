@@ -1,19 +1,20 @@
 class Solution {
     public String solution(String s) {
-        String answer = "";
-        String[] arr = s.split(" ");
         
-        for(int i = 0; i < arr.length; i++) {
-            String str = arr[i];
-            if(str.length() == 0) answer += " ";
+        StringBuilder sb = new StringBuilder();
+        String str[] = s.split(" ");
+        for(int i = 0; i < str.length; i++) 
+            System.out.println(str[i]);
+        for(int i = 0; i < str.length; i++) {
+            if(str[i].length() == 0) 
+                sb.append(" ");
             else {
-                answer += str.substring(0, 1).toUpperCase();
-                answer += str.substring(1).toLowerCase();
-                answer += " ";
+                sb.append(str[i].substring(0, 1).toUpperCase());
+                sb.append(str[i].substring(1).toLowerCase());
+                sb.append(" ");
             }
         }
-    	if(s.substring(s.length()-1, s.length()).equals(" "))
-    		return answer;
-        else return answer.substring(0, answer.length() - 1);
+        if(s.substring(s.length() - 1).equals(" ")) return sb.toString();
+        return sb.deleteCharAt(sb.length() - 1).toString();
     }
 }
