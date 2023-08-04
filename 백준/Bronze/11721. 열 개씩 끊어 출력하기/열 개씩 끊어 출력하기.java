@@ -1,13 +1,20 @@
 import java.util.*;
+import java.io.*;
 
-public class Main {
-	public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String str = sc.next();
-        
-        for(int i = 0; i < str.length(); i++) {
-            System.out.print(str.charAt(i));
-            if(i % 10 == 9) System.out.println();
-        }
-    }
+public class Main
+{
+	public static void main(String[] args) throws IOException{
+	    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	    String str = br.readLine();
+	    while(str.length() > 0) {
+	        if(str.length() < 10) {
+	            System.out.println(str);
+	            return;
+	        }
+	        else {
+	            System.out.println(str.substring(0, 10));
+	            str = str.substring(10);
+	        }
+	    }
+	}
 }
