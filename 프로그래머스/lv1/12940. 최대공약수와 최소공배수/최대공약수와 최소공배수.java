@@ -1,16 +1,15 @@
 class Solution {
     public int[] solution(int n, int m) {
         int[] answer = new int[2];
-        int min = (n < m) ? n : m;
-        int gcd = 0;
-        
-        for(int i = 1; i <= min; i++) 
-            if(n % i == 0 && m % i == 0)
-                gcd = i;
-        
+        int a = Math.max(n, m);
+        int b = Math.min(n, m);
+        int gcd = GCD(a, b);
         answer[0] = gcd;
-        answer[1] = n * m / gcd;
-        
+        answer[1] = (n * m) / gcd;  
         return answer;
+    }
+    int GCD(int n, int m) {
+        if(n % m == 0) return m; 
+        return GCD(m, n % m);
     }
 }
