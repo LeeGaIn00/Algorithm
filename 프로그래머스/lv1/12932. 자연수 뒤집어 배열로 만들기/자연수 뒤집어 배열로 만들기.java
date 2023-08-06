@@ -1,16 +1,12 @@
+import java.util.*;
+
 class Solution {
     public int[] solution(long n) {
-        int cnt = 0;
-        long tmp = n;
-         while(tmp != 0){
-                cnt++;
-                tmp /= 10;
-        }
-        int[] answer = new int[cnt];
-        tmp = n;
-        for(int i = 0; tmp != 0; i++) {
-            answer[i] = (int)(tmp % 10);
-            tmp /= 10;
+        int len = (int)(Math.log10(n) + 1);
+        int[] answer = new int[len];
+        for(int i = 0; i < len; i++) {
+            answer[i] = (int)(n % 10);
+            n /= 10;
         }
         return answer;
     }
