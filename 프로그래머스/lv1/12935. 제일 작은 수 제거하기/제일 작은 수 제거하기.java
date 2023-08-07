@@ -3,24 +3,21 @@ import java.util.*;
 class Solution {
     public int[] solution(int[] arr) {
         int[] answer = {};
-        int min = arr[0];
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        
-        if(arr.length == 1) return new int[]{-1};    
-        
-        for(int i = 0; i < arr.length; i++) {
-            if(arr[i] < min) 
-                min = arr[i];
+        if(arr.length == 1) {
+            answer = new int[1];
+            answer[0] = -1;
         }
-        
-        for(int i = 0; i < arr.length; i++) {
-            if(arr[i] != min) list.add(arr[i]);
+        else {
+            int min = arr[0];
+            for(int i = 1; i < arr.length; i++)
+                min = Math.min(min, arr[i]);
+            ArrayList<Integer> list = new ArrayList<>();
+            for(int i = 0; i < arr.length; i++)
+                if(arr[i] != min) list.add(arr[i]);
+            answer = new int[list.size()];
+            for(int i = 0; i < answer.length; i++)
+                answer[i] = list.get(i);
         }
-        answer = new int[list.size()];
-        
-        for(int i = 0; i < list.size(); i++) 
-            answer[i] = list.get(i);
-            
         return answer;
     }
 }
