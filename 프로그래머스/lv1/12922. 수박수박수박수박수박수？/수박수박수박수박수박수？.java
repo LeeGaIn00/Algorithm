@@ -1,11 +1,6 @@
 class Solution {
     public String solution(int n) {
-        String answer = "";
-        
-        for(int i = 1; i <= n; i++)
-            answer += i%2 == 0?"박":"수";
-           
-        
-        return answer;
+        if(n % 2 == 0) return "수박".repeat(n/2);
+        else return "수박".repeat(n/2) + "수";
     }
 }
