@@ -1,9 +1,10 @@
+import java.util.*;
+
 class Solution {
     public long solution(long n) {
         long answer = 0;
-        if(Math.sqrt(n) % 1 == 0)
-            return (long)((Math.sqrt(n)+1) * (Math.sqrt(n)+1));
-        else 
-            return -1;
+        long sqrt = (long)Math.sqrt(n);
+        if(sqrt * sqrt == n) return (sqrt + 1) * (sqrt + 1);
+        return -1;
     }
 }
