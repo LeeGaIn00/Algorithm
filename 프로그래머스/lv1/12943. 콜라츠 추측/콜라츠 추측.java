@@ -1,11 +1,10 @@
 class Solution {
-    public int solution(int num) {
+    public int solution(long num) {
         int answer = 0;
-        while(num > 0 && answer < 500) {
-            if(num == 1) return answer;
+        while(num != 1 && answer <= 500) {
             num = num % 2 == 0 ? num / 2 : num * 3 + 1;
             answer++;
         }
-        return -1;
+        return answer == 501 ? -1 : answer;
     }
 }
