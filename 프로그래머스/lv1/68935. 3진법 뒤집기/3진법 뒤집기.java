@@ -1,26 +1,6 @@
-// class Solution {
-//     public int solution(int n) {
-//         int answer = 0;
-        
-//         StringBuilder sb = new StringBuilder(new String(Integer.toString(n, 3)));
-        
-//         sb.reverse();
-//         answer = Integer.parseInt(sb.toString(), 3);
-        
-//         return answer;
-//     }
-// }
-
-
 class Solution {
     public int solution(int n) {
-        String str = "";
-        
-        while(n > 0) {
-            str += n % 3;
-            n /= 3;
-        }
-       
-        return Integer.parseInt(str, 3);
+        StringBuilder sb = new StringBuilder(Integer.toString(n, 3));
+        return Integer.parseInt(sb.reverse().toString(), 3);
     }
 }
