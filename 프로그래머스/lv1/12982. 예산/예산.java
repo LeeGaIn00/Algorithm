@@ -9,6 +9,8 @@ class Solution {
                 budget -= d[i];
                 answer++;
             }
+            else
+                break;
         }
         return answer;
     }
