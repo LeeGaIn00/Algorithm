@@ -3,14 +3,11 @@ import java.util.*;
 class Solution {
     public int solution(int k, int m, int[] score) {
         int answer = 0;
-        Integer[] arr = Arrays.stream(score).boxed().toArray(Integer[]::new);
-        Arrays.sort(arr, Collections.reverseOrder());
+        Arrays.sort(score);
         
-        for(int i = 0; i < arr.length; i+=m) {
-            if(i+m-1 < arr.length)
-                answer += arr[i+m-1] * m;
-            else break;
-        }
+        for(int i = score.length; i >= m; i-=m) 
+            answer += score[i - m] * m;
+        
         return answer;
     }
 }
