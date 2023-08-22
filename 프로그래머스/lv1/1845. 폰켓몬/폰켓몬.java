@@ -2,10 +2,14 @@ import java.util.*;
 
 class Solution {
     public int solution(int[] nums) {
-        int N = nums.length;
-        nums = Arrays.stream(nums).distinct().toArray();
+        int answer = 0;
+        int n = nums.length / 2;
+        Set<Integer> set = new HashSet<>();
         
-        if(N / 2 > nums.length) return nums.length;
-        else return N/2;
+        for(int i = 0; i < nums.length; i++)
+            set.add(nums[i]);
+        if(set.size() <= n) answer = set.size();
+        else answer = n;
+        return answer;
     }
 }
