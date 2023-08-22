@@ -6,8 +6,11 @@ class Solution {
         Integer[] arr = Arrays.stream(score).boxed().toArray(Integer[]::new);
         Arrays.sort(arr, Collections.reverseOrder());
         
-        for(int i = 0; i < arr.length; i += m)
-            if(i+m-1 < arr.length) answer += arr[i+m-1] * m;
+        for(int i = 0; i < arr.length; i+=m) {
+            if(i+m-1 < arr.length)
+                answer += arr[i+m-1] * m;
+            else break;
+        }
         return answer;
     }
 }
