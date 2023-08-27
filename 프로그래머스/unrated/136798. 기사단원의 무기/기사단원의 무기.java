@@ -15,9 +15,12 @@ class Solution {
     public int count(int n) {
         if(n == 1) return 1;
         
-        int cnt = 2;
-        for(int i = 2; i <= n / 2; i++)
-            if(n % i == 0) cnt++;
+        int cnt = 0;
+        
+        for(int i = 1; i * i <= n; i++) {
+            if(i * i == n) cnt++;
+            else if(n % i == 0) cnt += 2;
+        }
         
         return cnt;
     }
