@@ -1,25 +1,26 @@
-import java.util.*;
-
 class Solution {
     public String solution(String X, String Y) {
-        StringBuilder sb = new StringBuilder();
-        int[] x = new int[10];
-        int[] y = new int[10];
+        StringBuilder answer = new StringBuilder();
+        int arrX[] = new int[10];
+        int arrY[] = new int[10];
         
-        for(int i = 0; i < X.length(); i++)
-            x[X.charAt(i) - '0']++;
-        for(int i = 0; i < Y.length(); i++)
-            y[Y.charAt(i) - '0']++;
+        for(String x : X.split(""))
+            arrX[Integer.parseInt(x)]++;
+        
+        for(String y : Y.split(""))
+            arrY[Integer.parseInt(y)]++;
         
         for(int i = 9; i >= 0; i--) {
-            while(x[i] > 0 && y[i] > 0) {
-                sb.append(i);
-                x[i]--;
-                y[i]--;
+            while(arrX[i] > 0 && arrY[i] > 0) {
+                arrX[i]--;
+                arrY[i]--;
+                answer.append(i);
             }
         }
-        if(sb.toString().equals("")) return "-1";
-        else if(sb.toString().startsWith("0")) return "0"; 
-        return sb.toString();
+        
+        if(answer.toString().startsWith("0")) return "0";
+        if(answer.toString().equals("")) return "-1";
+        
+        return answer.toString();
     }
 }
