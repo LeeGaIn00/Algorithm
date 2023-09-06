@@ -1,14 +1,17 @@
 class Solution {
     public int solution(int[][] dots) {
         
-        for(int i = 0; i < dots.length; i++) {
-            double incl1 = dots[i][0] - dots[(i+1)%4][0] == 0 ? 1 : 
-                                        (dots[i][1] - dots[(i+1)%4][1]) / (double)(dots[i][0] - dots[(i+1)%4][0]);
-            double incl2 = dots[(i+2)%4][0] - dots[(i+3)%4][0] == 0 ? 1 :
-                                        (dots[(i+2)%4][1] - dots[(i+3)%4][1]) / (double)(dots[(i+2)%4][0] - dots[(i+3)%4][0]);
-            if(incl1 == incl2) return 1;
-        }
-            
+        double a = (double)(dots[0][1] - dots[1][1]) / (dots[0][0] - dots[1][0]);
+        double b = (double)(dots[2][1] - dots[3][1]) / (dots[2][0] - dots[3][0]);
+        
+        double c = (double)(dots[0][1] - dots[2][1]) / (dots[0][0] - dots[2][0]);
+        double d = (double)(dots[1][1] - dots[3][1]) / (dots[1][0] - dots[3][0]);
+        
+        double e = (double)(dots[0][1] - dots[3][1]) / (dots[0][0] - dots[3][0]);
+        double f = (double)(dots[1][1] - dots[2][1]) / (dots[1][0] - dots[2][0]);
+
+        if(a == b || c == d || e == f) return 1;
+    
         return 0;
     }
 }
