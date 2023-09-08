@@ -3,15 +3,16 @@ class Solution {
         String answer = "";
         
         for(int i = 0; i < s.length(); i++) {
-            char ch = s.charAt(i);
+            char c = s.charAt(i);
+          
             for(int j = 0; j < index; j++) {
-                ch++;
-                if(ch > 'z') ch -= 26;
-                if(skip.contains(String.valueOf(ch)))
-                    j--;
+                c++;
+                if(c > 'z') c -= 26;
+                if(skip.contains(c + "")) j--;
             }
-            answer += ch;
+            answer += c;
         }
+        
         return answer;
     }
 }
