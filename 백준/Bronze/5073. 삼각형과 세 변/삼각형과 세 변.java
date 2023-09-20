@@ -1,29 +1,28 @@
 import java.util.*;
+import java.io.*;
 
 public class Main
 {
-	public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in); 
-        int arr[] = new int[3];
-        while(true) {
-            String res = "";
-            for(int i = 0; i < 3; i++)
-                arr[i] = sc.nextInt();
-            Arrays.sort(arr);
-            int a = arr[0];
-            int b = arr[1];
-            int c = arr[2];
-            
-            if(a == 0 && b == 0 && c == 0) return;
-            
-            if(c >= a + b) res = "Invalid";
-                
-            if(!res.equals("Invalid")) {
-                if(a == b && b == c) res = "Equilateral";
-                else if(a == b || b == c || a == c) res = "Isosceles";
-                else if(a != b && b != c) res = "Scalene";
-            }
-            System.out.println(res);
-        }
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int a[] = new int[3];
+		while(true) {
+		    StringTokenizer st = new StringTokenizer(br.readLine());
+		    
+		    a[0] = Integer.parseInt(st.nextToken());
+		    a[1] = Integer.parseInt(st.nextToken());
+		    a[2] = Integer.parseInt(st.nextToken());
+		    
+		    Arrays.sort(a);
+		    
+		    if(a[0] == 0 && a[1] == 0 && a[2] == 0) break;
+		    
+		    if(a[2] >= a[0] + a[1]) System.out.println("Invalid");
+		    else if(a[0] == a[1] && a[1] == a[2]) System.out.println("Equilateral");
+		    else if(a[0] == a[1] || a[1] == a[2] || a[0] == a[2]) System.out.println("Isosceles");
+		    else System.out.println("Scalene");
+		}
+		
+		
 	}
 }
