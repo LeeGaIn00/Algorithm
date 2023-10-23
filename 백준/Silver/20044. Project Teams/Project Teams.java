@@ -19,8 +19,10 @@ public class Main
 	    for(int i = 0; i < n; i++)
 	        arr[i] = w[2 * n - i - 1] + w[i];
 	        
-	    Arrays.sort(arr);
-        
-		System.out.println(arr[0]);
+	    int min = arr[0];
+        for(int i = 0; i < arr.length; i++)
+            if(min > arr[i]) min = arr[i];
+         
+		System.out.println(min);
 	}
 }
