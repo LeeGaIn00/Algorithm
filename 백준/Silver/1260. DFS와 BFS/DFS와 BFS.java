@@ -3,66 +3,62 @@ import java.io.*;
 
 public class Main
 {
-    static int graph[][];
-    static boolean[] visited;
-    static int n, m, v;
+    static int N, M, V;
+    static int arr[][];
+    static boolean[] visit;
     
-    static Queue<Integer> queue = new LinkedList<>();
-	static StringBuilder sb = new StringBuilder();
+    static StringBuilder sb = new StringBuilder();
+    static Queue<Integer> q = new LinkedList<>();
     
 	public static void main(String[] args) throws IOException {
-	    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	    String s = br.readLine();
-	    StringTokenizer st = new StringTokenizer(s);
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	    StringTokenizer st = new StringTokenizer(br.readLine());
 	    
-	    n = Integer.parseInt(st.nextToken());
-	    m = Integer.parseInt(st.nextToken());
-	    v = Integer.parseInt(st.nextToken());
-	    graph = new int[n+1][n+1];
-	    visited = new boolean[n+1];
+	    N = Integer.parseInt(st.nextToken());
+	    M = Integer.parseInt(st.nextToken());
+	    V = Integer.parseInt(st.nextToken());
 	    
-	    for(int i = 0; i < m; i++) {
+	    arr = new int[N+1][N+1];
+	    visit = new boolean[N+1];
+	    
+	    for(int i = 0; i < M; i++) {
 	        st = new StringTokenizer(br.readLine());
-	        int node1 = Integer.parseInt(st.nextToken());
-	        int node2 = Integer.parseInt(st.nextToken());
+	        int x = Integer.parseInt(st.nextToken());
+	        int y = Integer.parseInt(st.nextToken());
 	        
-	        // 양방향 그래프
-	        graph[node1][node2] = 1;
-	        graph[node2][node1] = 1;
+	        arr[x][y] = 1;
+	        arr[y][x] = 1;
 	    }
-	    dfs(v);
+	    dfs(V);
 	    sb.append("\n");
-	    Arrays.fill(visited, false); // 방문배열 초기화
+	    Arrays.fill(visit, false);
+	    bfs(V);
 	    
-	    bfs(v);
-        System.out.println(sb);
-    }
-    
-    static void dfs(int v) {
-        visited[v] = true;
-        sb.append(v).append(" ");
-        
-        // recursive
-        for(int i = 1; i <= n; i++) {
-            if(graph[v][i] == 1 && !visited[i])
-                dfs(i);
-        }
-    }
-    
-    static void bfs(int v) {
-        queue.add(v);
-        visited[v] = true;
-        
-        while(!queue.isEmpty()) {
-            v = queue.poll();
-            sb.append(v).append(" ");
-            
-            for(int i = 1; i <= n; i++) {
-                if(graph[v][i] == 1 && !visited[i]) {
-                    queue.add(i);
-                    visited[i] = true;
-                }
-            }
-        }
-    }
+	    System.out.println(sb);
+	}
+	
+	static void dfs(int v) {
+	    visit[v] = true;
+	    sb.append(v).append(" ");
+	    
+	    for(int i = 1; i <= N; i++)
+	        if(arr[v][i] == 1 && !visit[i])
+	            dfs(i);
+	}
+	
+	static void bfs(int v) {
+	    q.add(v);
+	    visit[v] = true;
+	    
+	    while(!q.isEmpty()) {
+	        v = q.poll();
+	        sb.append(v).append(" ");
+	        
+	        for(int i = 1; i <= N; i++)
+	            if(arr[v][i] == 1 && !visit[i]) {
+	                q.add(i);
+	                visit[i] = true;
+	            }
+	    }
+	}
 }
